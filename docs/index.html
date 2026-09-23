@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FreeSGA — Sistema de Gerenciamento de Atendimento livre e gratuito</title>
+<meta name="description" content="FreeSGA é um sistema open-source de gestão de senhas e filas de atendimento, feito em Laravel. Gratuito, self-hosted e com licença MIT.">
+<meta property="og:title" content="FreeSGA — Gestão de atendimento livre e gratuita">
+<meta property="og:description" content="Emissão de senhas, painel de chamadas, atendimento, monitor, relatórios, totem, WhatsApp e LGPD. Open-source em Laravel.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { brand: { 50:'#f0f9ff',100:'#e0f2fe',500:'#0ea5e9',600:'#0284c7',700:'#0369a1',800:'#075985',900:'#0c4a6e' } },
+    fontFamily: { sans:['Instrument Sans','system-ui','sans-serif'], mono:['JetBrains Mono','monospace'] },
+  } }
+}
+</script>
+<style>
+  html{font-family:'Instrument Sans',system-ui,sans-serif}
+  .grid-bg{background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.09) 1px,transparent 0);background-size:26px 26px}
+  @keyframes pulse-ring{0%,100%{box-shadow:0 0 0 0 rgba(14,165,233,.45)}50%{box-shadow:0 0 0 22px rgba(14,165,233,0)}}
+  .ring{animation:pulse-ring 2.2s ease-out infinite}
+</style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+<!-- Nav -->
+<header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur">
+  <div class="mx-auto flex h-16 max-w-6xl items-center gap-6 px-5">
+    <a href="#top" class="flex items-center gap-2 font-bold text-slate-900">
+      <span class="grid size-9 place-items-center rounded-xl bg-brand-600 text-white">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>
+      </span>
+      Free<span class="text-brand-600">SGA</span>
+    </a>
+    <nav class="ml-auto hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
+      <a href="#recursos" class="hover:text-brand-700">Recursos</a>
+      <a href="#modulos" class="hover:text-brand-700">Módulos</a>
+      <a href="#avancado" class="hover:text-brand-700">Diferenciais</a>
+      <a href="#instalar" class="hover:text-brand-700">Instalação</a>
+    </nav>
+    <a href="https://github.com/imaginarts/FreeSGA" class="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3.5 py-2 text-sm font-semibold text-white hover:bg-slate-800">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="size-4"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03A9.6 9.6 0 0 1 12 6.8c.85 0 1.71.11 2.51.33 1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="top" class="relative overflow-hidden bg-gradient-to-b from-slate-900 to-brand-900 text-white">
+  <div class="grid-bg absolute inset-0"></div>
+  <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-2 lg:py-28">
+    <div>
+      <span class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium">
+        <span class="size-1.5 rounded-full bg-emerald-400"></span> Open-source · Licença MIT · Self-hosted
+      </span>
+      <h1 class="mt-5 text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+        Gestão de atendimento <span class="text-brand-400">livre e gratuita</span>
+      </h1>
+      <p class="mt-5 max-w-lg text-lg text-slate-300">
+        O FreeSGA organiza a fila da sua recepção: emite senhas, chama no painel, controla o atendimento e mede tudo — do guichê ao celular do cliente. Instale no seu servidor, sem mensalidade.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="https://github.com/imaginarts/FreeSGA" class="inline-flex items-center gap-2 rounded-xl bg-brand-500 px-5 py-3 font-semibold text-white shadow-lg shadow-brand-500/30 hover:bg-brand-400">
+          Ver no GitHub
+        </a>
+        <a href="#instalar" class="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/5 px-5 py-3 font-semibold text-white hover:bg-white/10">
+          Como instalar
+        </a>
+      </div>
+      <dl class="mt-10 flex gap-8 text-sm">
+        <div><dt class="text-2xl font-bold">10</dt><dd class="text-slate-400">módulos</dd></div>
+        <div><dt class="text-2xl font-bold">100%</dt><dd class="text-slate-400">gratuito</dd></div>
+        <div><dt class="text-2xl font-bold">API</dt><dd class="text-slate-400">REST inclusa</dd></div>
+      </dl>
+    </div>
+
+    <!-- Mock painel -->
+    <div class="relative">
+      <div class="mx-auto max-w-md overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-black/5">
+        <div class="flex items-center justify-between bg-brand-700 px-5 py-3 text-sm font-medium text-white/90">
+          <span>Painel de chamadas</span><span class="font-mono">10:42</span>
+        </div>
+        <div class="grid grid-cols-[1fr_auto]">
+          <div class="p-7 text-center text-slate-900">
+            <p class="text-xs font-semibold uppercase tracking-widest text-slate-400">Senha</p>
+            <p class="ring mx-auto my-2 w-fit rounded-2xl font-mono text-6xl font-bold text-brand-600">A042</p>
+            <p class="text-xl font-semibold">Guichê 03</p>
+            <p class="text-sm text-slate-500">Atendimento Geral</p>
+          </div>
+          <div class="w-28 space-y-2 bg-slate-900 p-3 text-white">
+            <p class="text-[10px] uppercase tracking-widest text-white/40">Últimas</p>
+            <div class="rounded-lg bg-white/5 px-2 py-1.5"><span class="font-mono font-bold">B017</span><br><span class="text-[10px] text-white/50">Guichê 01</span></div>
+            <div class="rounded-lg bg-white/5 px-2 py-1.5"><span class="font-mono font-bold">A041</span><br><span class="text-[10px] text-white/50">Guichê 02</span></div>
+            <div class="rounded-lg bg-white/5 px-2 py-1.5"><span class="font-mono font-bold">C009</span><br><span class="text-[10px] text-white/50">Mesa 04</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute -bottom-5 -left-4 hidden rounded-2xl bg-white px-4 py-3 text-slate-900 shadow-xl ring-1 ring-black/5 sm:block">
+        <p class="text-xs text-slate-500">Espera média</p>
+        <p class="font-mono text-xl font-bold text-emerald-600">04:12</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Faixa de recursos -->
+<section id="recursos" class="border-b border-slate-100 bg-slate-50 py-16">
+  <div class="mx-auto max-w-6xl px-5">
+    <h2 class="text-center text-sm font-semibold uppercase tracking-widest text-brand-600">Por que FreeSGA</h2>
+    <p class="mx-auto mt-2 max-w-2xl text-center text-2xl font-bold text-slate-900">Tudo o que uma recepção precisa, sem custo de licença</p>
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <div class="grid size-11 place-items-center rounded-xl bg-brand-50 text-brand-600">💸</div>
+        <h3 class="mt-4 font-semibold text-slate-900">Gratuito e livre</h3>
+        <p class="mt-1 text-sm text-slate-500">Licença MIT. Use, modifique e distribua sem mensalidade nem limite de guichês.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <div class="grid size-11 place-items-center rounded-xl bg-brand-50 text-brand-600">⚡</div>
+        <h3 class="mt-4 font-semibold text-slate-900">Tempo real</h3>
+        <p class="mt-1 text-sm text-slate-500">Painel, monitor e filas atualizam na hora via WebSocket, com fallback automático.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <div class="grid size-11 place-items-center rounded-xl bg-brand-50 text-brand-600">📱</div>
+        <h3 class="mt-4 font-semibold text-slate-900">Senha no celular</h3>
+        <p class="mt-1 text-sm text-slate-500">QR code na senha abre a fila no celular do cliente, com aviso de "sua vez".</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <div class="grid size-11 place-items-center rounded-xl bg-brand-50 text-brand-600">🔒</div>
+        <h3 class="mt-4 font-semibold text-slate-900">LGPD nativo</h3>
+        <p class="mt-1 text-sm text-slate-500">Mascaramento de CPF, auditoria de ações e retenção configurável de dados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Módulos -->
+<section id="modulos" class="py-20">
+  <div class="mx-auto max-w-6xl px-5">
+    <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-600">Módulos</h2>
+    <p class="mt-2 max-w-2xl text-2xl font-bold text-slate-900">Cobre todo o fluxo, da emissão da senha ao relatório</p>
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="rounded-2xl border border-slate-200 p-6"><h3 class="font-semibold text-slate-900">🎫 Triagem</h3><p class="mt-1 text-sm text-slate-500">Emissão e impressão de senhas normais e prioritárias, com identificação opcional do cliente.</p></div>
+      <div class="rounded-2xl border border-slate-200 p-6"><h3 class="font-semibold text-slate-900">🎧 Atendimento</h3><p class="mt-1 text-sm text-slate-500">Chamar, rechamar, iniciar, encerrar com serviços realizados, não comparecimento e redirecionamento.</p></div>
+      <div class="rounded-2xl border border-slate-200 p-6"><h3 class="font-semibold text-slate-900">📺 Painel de chamadas</h3><p class="mt-1 text-sm text-slate-500">Tela para a TV da recepção com som e voz, sem precisar de login.</p></div>
+      <div class="rounded-2xl border border-slate-200 p-6"><h3 class="font-semibold text-slate-900">🖥️ Monitor</h3><p class="mt-1 text-sm text-slate-500">Filas da unidade em tempo real, com transferir, cancelar e reativar senhas.</p></div>
+      <div class="rounded-2xl border border-slate-200 p-6"><h3 class="font-semibold text-slate-900">📊 Relatórios</h3><p class="mt-1 text-sm text-slate-500">Gráficos e relatórios de produtividade, tempos, metas e satisfação, prontos para imprimir.</p></div>
+      <div class="rounded-2xl border border-slate-200 p-6"><h3 class="font-semibold text-slate-900">📅 Agendamentos</h3><p class="mt-1 text-sm text-slate-500">Agenda por serviço; a chegada do cliente vira senha na triagem ou no totem.</p></div>
+      <div class="rounded-2xl border border-slate-200 p-6"><h3 class="font-semibold text-slate-900">👤 Clientes</h3><p class="mt-1 text-sm text-slate-500">Cadastro, histórico de senhas e direitos do titular (exportar e anonimizar).</p></div>
+      <div class="rounded-2xl border border-slate-200 p-6"><h3 class="font-semibold text-slate-900">👥 Usuários e perfis</h3><p class="mt-1 text-sm text-slate-500">Atendentes, lotações por unidade e perfis de acesso por módulo.</p></div>
+      <div class="rounded-2xl border border-slate-200 p-6"><h3 class="font-semibold text-slate-900">⚙️ Configurações</h3><p class="mt-1 text-sm text-slate-500">Serviços da unidade, contadores, impressão, atendentes e todos os recursos opcionais.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Diferenciais -->
+<section id="avancado" class="border-y border-slate-100 bg-slate-900 py-20 text-white">
+  <div class="mx-auto max-w-6xl px-5">
+    <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-400">Diferenciais</h2>
+    <p class="mt-2 max-w-2xl text-2xl font-bold">Recursos que normalmente só existem em sistemas pagos</p>
+    <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6"><h3 class="font-semibold">Acompanhamento pelo celular</h3><p class="mt-1 text-sm text-slate-400">QR na senha com posição na fila, tempo estimado e aviso de proximidade.</p></div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6"><h3 class="font-semibold">Metas de espera (SLA)</h3><p class="mt-1 text-sm text-slate-400">Alertas no monitor quando a fila estoura a meta, com indicadores do dia.</p></div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6"><h3 class="font-semibold">Pausas do atendente</h3><p class="mt-1 text-sm text-slate-400">Almoço, intervalo e reunião com controle de tempo e relatório.</p></div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6"><h3 class="font-semibold">Impressão térmica e totem</h3><p class="mt-1 text-sm text-slate-400">Impressão direta ESC/POS e totem de autoatendimento em tela cheia.</p></div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6"><h3 class="font-semibold">WhatsApp e pesquisa</h3><p class="mt-1 text-sm text-slate-400">Avisos por WhatsApp/SMS e pesquisa de satisfação (NPS/CSAT) por atendente.</p></div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6"><h3 class="font-semibold">Privacidade e auditoria</h3><p class="mt-1 text-sm text-slate-400">Registro de ações sensíveis, mascaramento de dados e retenção automática.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Instalação -->
+<section id="instalar" class="py-20">
+  <div class="mx-auto max-w-6xl px-5">
+    <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+        <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-600">Instalação</h2>
+        <p class="mt-2 text-2xl font-bold text-slate-900">No seu servidor em poucos minutos</p>
+        <p class="mt-4 text-slate-500">Requisitos: PHP 8.4+, Composer, Node.js e MySQL/MariaDB (ou PostgreSQL). Inclui broadcasting em tempo real com Laravel Reverb.</p>
+        <ul class="mt-6 space-y-2 text-sm text-slate-600">
+          <li class="flex gap-2"><span class="text-brand-600">✓</span> Laravel 13 + Livewire 4 + Tailwind CSS</li>
+          <li class="flex gap-2"><span class="text-brand-600">✓</span> API REST com autenticação por token (Sanctum)</li>
+          <li class="flex gap-2"><span class="text-brand-600">✓</span> Multiunidade, com fila configurável por prioridade e peso</li>
+          <li class="flex gap-2"><span class="text-brand-600">✓</span> Suíte de testes automatizados</li>
+        </ul>
+        <a href="https://github.com/imaginarts/FreeSGA#instala%C3%A7%C3%A3o" class="mt-6 inline-flex items-center gap-2 font-semibold text-brand-700 hover:text-brand-800">Documentação completa →</a>
+      </div>
+      <div class="overflow-hidden rounded-2xl bg-slate-950 shadow-xl ring-1 ring-white/10">
+        <div class="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
+          <span class="size-3 rounded-full bg-red-400"></span><span class="size-3 rounded-full bg-amber-400"></span><span class="size-3 rounded-full bg-emerald-400"></span>
+          <span class="ml-2 text-xs text-slate-400">terminal</span>
+        </div>
+        <pre class="overflow-x-auto p-5 text-sm leading-relaxed text-slate-100"><code><span class="text-slate-500"># clonar e instalar</span>
+git clone https://github.com/imaginarts/FreeSGA.git
+cd FreeSGA
+composer install
+npm install && npm run build
+
+<span class="text-slate-500"># configurar e migrar</span>
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+
+<span class="text-slate-500"># iniciar</span>
+php artisan serve        <span class="text-slate-500"># app</span>
+php artisan reverb:start <span class="text-slate-500"># tempo real</span>
+php artisan queue:work   <span class="text-slate-500"># webhooks/avisos</span></code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="px-5 pb-20">
+  <div class="mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 to-brand-800 px-8 py-14 text-center text-white">
+    <h2 class="text-3xl font-bold">Comece a organizar seu atendimento hoje</h2>
+    <p class="mx-auto mt-3 max-w-xl text-brand-100">Gratuito para sempre. Sem cadastro, sem mensalidade, sem limite de uso.</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="https://github.com/imaginarts/FreeSGA" class="rounded-xl bg-white px-6 py-3 font-semibold text-brand-700 hover:bg-brand-50">Baixar no GitHub</a>
+      <a href="https://github.com/imaginarts/FreeSGA/issues" class="rounded-xl border border-white/40 px-6 py-3 font-semibold text-white hover:bg-white/10">Reportar um problema</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-slate-200 bg-slate-50 py-10">
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 text-sm text-slate-500 sm:flex-row">
+    <div class="flex items-center gap-2 font-semibold text-slate-700">
+      <span class="grid size-7 place-items-center rounded-lg bg-brand-600 text-white">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/></svg>
+      </span>
+      Free<span class="text-brand-600">SGA</span>
+    </div>
+    <p class="text-center">Feito pela <a href="https://github.com/imaginarts" class="font-medium text-slate-700 hover:text-brand-700">Imaginarts</a> · Licença MIT · Inspirado no <a href="https://github.com/novosga/novosga" class="font-medium text-slate-700 hover:text-brand-700">NovoSGA</a></p>
+    <a href="https://github.com/imaginarts/FreeSGA" class="hover:text-brand-700">GitHub</a>
+  </div>
+</footer>
+
+</body>
+</html>

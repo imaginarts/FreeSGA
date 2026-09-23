@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/livewire/src/Features/SupportPagination/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../../app/**/*.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    --color-brand-50: #f0f9ff;
+    --color-brand-100: #e0f2fe;
+    --color-brand-500: #0ea5e9;
+    --color-brand-600: #0284c7;
+    --color-brand-700: #0369a1;
+    --color-brand-800: #075985;
+    --color-brand-900: #0c4a6e;
+}
+
+[x-cloak] { display: none !important; }
+
+@layer components {
+    .card { @apply rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900; }
+    .card-header { @apply flex items-center justify-between gap-3 border-b border-slate-200 px-5 py-3.5 dark:border-slate-800; }
+    .card-title { @apply text-sm font-semibold text-slate-800 dark:text-slate-100; }
+    .card-body { @apply p-5; }
+
+    .btn { @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:focus-visible:ring-offset-slate-900; }
+    .btn-sm { @apply px-2.5 py-1.5 text-xs; }
+    .btn-lg { @apply px-5 py-3 text-base; }
+    .btn-primary { @apply bg-brand-600 text-white shadow-sm hover:bg-brand-700; }
+    .btn-secondary { @apply border border-slate-300 bg-white text-slate-700 shadow-sm hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700; }
+    .btn-danger { @apply bg-red-600 text-white shadow-sm hover:bg-red-700; }
+    .btn-success { @apply bg-emerald-600 text-white shadow-sm hover:bg-emerald-700; }
+    .btn-warning { @apply bg-amber-500 text-white shadow-sm hover:bg-amber-600; }
+    .btn-ghost { @apply text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800; }
+
+    .label { @apply mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300; }
+    .input { @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none disabled:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:disabled:bg-slate-900; }
+    .checkbox { @apply size-4 rounded border-slate-300 text-brand-600 accent-brand-600 focus:ring-brand-500; }
+    .error { @apply mt-1 text-xs text-red-600; }
+    .hint { @apply mt-1 text-xs text-slate-500; }
+
+    .badge { @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium; }
+
+    .table { @apply w-full text-left text-sm; }
+    .table thead { @apply border-b border-slate-200 bg-slate-50 text-xs font-semibold tracking-wide text-slate-500 uppercase dark:border-slate-800 dark:bg-slate-800/50 dark:text-slate-400; }
+    .table th { @apply px-4 py-2.5 font-semibold; }
+    .table td { @apply border-b border-slate-100 px-4 py-2.5 text-slate-700 dark:border-slate-800 dark:text-slate-300; }
+    .table tbody tr:hover { @apply bg-slate-50/70 dark:bg-slate-800/40; }
+
+    .page-title { @apply text-xl font-semibold text-slate-900 dark:text-white; }
+    .page-subtitle { @apply mt-0.5 text-sm text-slate-500 dark:text-slate-400; }
+}

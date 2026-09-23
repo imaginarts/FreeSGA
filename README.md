@@ -1,6 +1,8 @@
-# SGA — Sistema de Gerenciamento de Atendimento
+# FreeSGA — Sistema de Gerenciamento de Atendimento
 
-Sistema de senhas e filas de atendimento em **Laravel 13 + Livewire 4 + Reverb**, inspirado no NovoSGA 2.4.
+Sistema **livre e gratuito** de senhas e filas de atendimento em **Laravel 13 + Livewire 4 + Reverb**. Open-source sob licença MIT, inspirado no [NovoSGA](https://github.com/novosga/novosga).
+
+🌐 **Site:** https://imaginarts.github.io/FreeSGA/
 
 ## Módulos
 

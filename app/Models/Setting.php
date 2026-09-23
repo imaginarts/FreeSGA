@@ -74,7 +74,7 @@ class Setting extends Model
             'retention_days' => 365,
         ],
         'appearance' => [
-            'app_name' => 'SGA',
+            'app_name' => 'FreeSGA',
             'primary_color' => '#0369a1',
         ],
     ];

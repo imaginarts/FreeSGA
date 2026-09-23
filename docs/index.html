@@ -41,6 +41,7 @@ tailwind.config = {
     <nav class="ml-auto hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
       <a href="#recursos" class="hover:text-brand-700">Recursos</a>
       <a href="#modulos" class="hover:text-brand-700">Módulos</a>
+      <a href="#telas" class="hover:text-brand-700">Telas</a>
       <a href="#avancado" class="hover:text-brand-700">Diferenciais</a>
       <a href="#instalar" class="hover:text-brand-700">Instalação</a>
     </nav>
@@ -154,6 +155,46 @@ tailwind.config = {
       <div class="rounded-2xl border border-slate-200 p-6"><h3 class="font-semibold text-slate-900">👤 Clientes</h3><p class="mt-1 text-sm text-slate-500">Cadastro, histórico de senhas e direitos do titular (exportar e anonimizar).</p></div>
       <div class="rounded-2xl border border-slate-200 p-6"><h3 class="font-semibold text-slate-900">👥 Usuários e perfis</h3><p class="mt-1 text-sm text-slate-500">Atendentes, lotações por unidade e perfis de acesso por módulo.</p></div>
       <div class="rounded-2xl border border-slate-200 p-6"><h3 class="font-semibold text-slate-900">⚙️ Configurações</h3><p class="mt-1 text-sm text-slate-500">Serviços da unidade, contadores, impressão, atendentes e todos os recursos opcionais.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Galeria de telas -->
+<section id="telas" class="border-t border-slate-100 bg-slate-50 py-20">
+  <div class="mx-auto max-w-6xl px-5">
+    <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-600">Veja o sistema</h2>
+    <p class="mt-2 max-w-2xl text-2xl font-bold text-slate-900">Telas reais do FreeSGA</p>
+
+    <figure class="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <img src="screenshots/painel.png" alt="Painel de chamadas na TV" class="w-full" loading="lazy">
+      <figcaption class="border-t border-slate-100 px-5 py-3 text-sm text-slate-600"><b class="text-slate-800">Painel de chamadas</b> — para a TV da recepção, com som e voz</figcaption>
+    </figure>
+
+    <div class="mt-6 grid gap-6 md:grid-cols-2">
+      <figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <img src="screenshots/triagem.png" alt="Tela de triagem" class="w-full" loading="lazy">
+        <figcaption class="border-t border-slate-100 px-5 py-3 text-sm text-slate-600"><b class="text-slate-800">Triagem</b> — emissão de senhas com espera estimada</figcaption>
+      </figure>
+      <figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <img src="screenshots/atendimento.png" alt="Tela de atendimento" class="w-full" loading="lazy">
+        <figcaption class="border-t border-slate-100 px-5 py-3 text-sm text-slate-600"><b class="text-slate-800">Atendimento</b> — senha atual e fila do atendente</figcaption>
+      </figure>
+      <figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <img src="screenshots/monitor.png" alt="Monitor de filas" class="w-full" loading="lazy">
+        <figcaption class="border-t border-slate-100 px-5 py-3 text-sm text-slate-600"><b class="text-slate-800">Monitor</b> — filas, metas de espera e atendentes</figcaption>
+      </figure>
+      <figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <img src="screenshots/relatorios.png" alt="Relatórios e gráficos" class="w-full" loading="lazy">
+        <figcaption class="border-t border-slate-100 px-5 py-3 text-sm text-slate-600"><b class="text-slate-800">Relatórios</b> — indicadores e gráficos da unidade</figcaption>
+      </figure>
+      <figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <img src="screenshots/totem.png" alt="Totem de autoatendimento" class="w-full" loading="lazy">
+        <figcaption class="border-t border-slate-100 px-5 py-3 text-sm text-slate-600"><b class="text-slate-800">Totem</b> — autoatendimento em tela cheia</figcaption>
+      </figure>
+      <figure class="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="flex flex-1 items-center justify-center bg-slate-100 p-6"><img src="screenshots/celular.png" alt="Acompanhamento no celular" class="max-h-96 rounded-xl shadow-md" loading="lazy"></div>
+        <figcaption class="border-t border-slate-100 px-5 py-3 text-sm text-slate-600"><b class="text-slate-800">No celular</b> — o cliente acompanha a fila pelo QR code</figcaption>
+      </figure>
     </div>
   </div>
 </section>

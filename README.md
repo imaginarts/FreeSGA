@@ -1,5 +1,10 @@
 # FreeSGA — Sistema de Gerenciamento de Atendimento
 
+[![CI](https://github.com/imaginarts/FreeSGA/actions/workflows/ci.yml/badge.svg)](https://github.com/imaginarts/FreeSGA/actions/workflows/ci.yml)
+[![Licença: MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-blue.svg)](LICENSE)
+[![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.4%2B-777BB4?logo=php&logoColor=white)](https://php.net)
+
 Sistema **livre e gratuito** de senhas e filas de atendimento em **Laravel 13 + Livewire 4 + Reverb**. Open-source sob licença MIT, inspirado no [NovoSGA](https://github.com/novosga/novosga).
 
 🌐 **Site:** https://imaginarts.github.io/FreeSGA/
